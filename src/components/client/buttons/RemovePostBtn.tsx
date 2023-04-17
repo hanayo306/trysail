@@ -17,6 +17,7 @@ const RemovePostBtn = ({ postId }: { postId: string }) => {
     setIsLoading(true);
     await supabase.from("posts").update({ deleted: true }).eq("id", postId);
     router.push("/");
+    router.refresh();
     handleRemoveClose();
     setIsLoading(false);
   };

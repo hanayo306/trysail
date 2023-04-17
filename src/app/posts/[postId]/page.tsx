@@ -17,17 +17,17 @@ export const generateMetadata = async ({ params }: Props): Promise<Metadata> => 
   const post = await getDetail(id);
 
   return {
-    title: post?.title || "없는 이미지",
+    title: `${post?.title} - Trysail` || "없는 이미지",
     description: post?.content || "없는 이미지",
     openGraph: {
-      title: post?.title || "없는 이미지",
+      title: `${post?.title} - Trysail` || "없는 이미지",
       description: post?.content || "없는 이미지",
       images: post?.images || [],
     },
   };
 };
 
-const Page = async ({ params: { postId } }: { params: { postId: string } }) => {
+const Page = async ({ params: { postId } }: Props) => {
   const cookieStore = cookies();
   const token = cookieStore.get("access_token")?.value;
 
@@ -48,7 +48,7 @@ const Page = async ({ params: { postId } }: { params: { postId: string } }) => {
 
       <p>{post.content}</p>
 
-      <PostImagesSwiper images={post.images} />
+      <PostImagesSwiper post={post} />
     </>
   );
 };

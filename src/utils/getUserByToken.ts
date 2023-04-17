@@ -1,6 +1,15 @@
 import supabase from "@/libs/supabase";
+import { User } from "@supabase/supabase-js";
 
-const getUserByToken = async (token: string | undefined) => {
+export type UserInformation = {
+  user: User;
+  profile: {
+    user_name: string;
+    profile_picture_url: string;
+  };
+};
+
+const getUserByToken = async (token: string | undefined): Promise<UserInformation | null> => {
   if (!token) return null;
 
   const {

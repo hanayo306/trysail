@@ -14,15 +14,13 @@ export const revalidate = 0;
 
 const Page = async () => {
   return (
-    <>
-      <div className="p-4 w-full">
-        <div className="mx-auto max-w-2xl px-4 rounded-xl">
-          <h2>Register</h2>
+    <div className="flex justify-center items-center min-h-[calc(100vh-81px)]">
+      <div className="mx-auto max-w-xl w-full">
+        <h2 className="text-2xl font-bold mb-8">Register</h2>
 
-          <RegisterForm />
-        </div>
+        <RegisterForm />
       </div>
-    </>
+    </div>
   );
 };
 

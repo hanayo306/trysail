@@ -23,7 +23,7 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
         <Nav />
         <main className="container mx-auto min-h-[calc(100vh-49px)]">
           <div className="flex items-start">
-            <div className="w-[calc(100%-256px)] min-h-[calc(100vh-49px)] p-4">{children}</div>
+            <div className="w-full md:w-[calc(100%-256px)] min-h-[calc(100vh-49px)] p-4">{children}</div>
 
             <Suspense fallback={<AsideSkeleton />}>
               {/* @ts-ignore Async Server Component */}

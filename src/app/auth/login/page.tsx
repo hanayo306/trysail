@@ -14,7 +14,7 @@ export const revalidate = 0;
 
 const Page = async () => {
   return (
-    <div className="flex justify-center items-center min-h-[calc(100vh-49px)]">
+    <div className="flex justify-center items-center min-h-[calc(100vh-81px)]">
       <div className="mx-auto max-w-xl w-full">
         <h2 className="text-2xl font-bold mb-8">Login</h2>
 
