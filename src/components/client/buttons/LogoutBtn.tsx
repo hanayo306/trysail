@@ -7,17 +7,7 @@ import supabase from "@/libs/supabase";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 
-interface LogoutBtnProps {
-  userInformation: {
-    user: User;
-    profile: {
-      user_name: string;
-      profile_picture_url: string;
-    };
-  };
-}
-
-const LogoutBtn = ({ userInformation }: LogoutBtnProps) => {
+const LogoutBtn = () => {
   const [disabled, setDisabled] = useState(false);
   const router = useRouter();
 
@@ -33,12 +23,9 @@ const LogoutBtn = ({ userInformation }: LogoutBtnProps) => {
   };
 
   return (
-    <div className="w-full flex justify-between items-center">
-      <p className="font-bold text-xl">{userInformation.profile.user_name}</p>
-      <Button onClick={logout} disabled={disabled} variant="text">
-        <LogoutIcon />
-      </Button>
-    </div>
+    <Button onClick={logout} disabled={disabled} variant="text">
+      <LogoutIcon />
+    </Button>
   );
 };
 
