@@ -17,10 +17,10 @@ export const generateMetadata = async ({ params }: Props): Promise<Metadata> => 
   const post = await getDetail(id);
 
   return {
-    title: `${post?.title} - Trysail` || "없는 이미지",
+    title: `${post?.title || "없는 이미지"} - Trysail`,
     description: post?.content || "없는 이미지",
     openGraph: {
-      title: `${post?.title} - Trysail` || "없는 이미지",
+      title: `${post?.title || "없는 이미지"} - Trysail`,
       description: post?.content || "없는 이미지",
       images: post?.images || [],
     },
