@@ -9,7 +9,7 @@ const PostsSkeleton = () => {
 
       <ul className="flex flex-wrap gap-8 justify-center">
         {[...new Array(6).keys()].map(key => (
-          <li key={key}>
+          <li key={key} className="overflow-hidden">
             <Skeleton variant="rounded" width={360} height={200} />
 
             <div className="py-2 my-1 flex gap-4 items-center">
