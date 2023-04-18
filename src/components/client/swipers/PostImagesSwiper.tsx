@@ -34,7 +34,7 @@ const PostImagesSwiper = ({ post }: { post: Post }) => {
                 alt={post.title}
                 width={512}
                 height={512}
-                className="rounded-xl object-cover w-auto h-[80vh] border shadow-xl"
+                className="rounded-xl object-contain max-w-7xl w-full max-h-[90vh] h-auto border shadow-xl bg-gray-600"
                 unoptimized
               />
             </>
@@ -43,7 +43,16 @@ const PostImagesSwiper = ({ post }: { post: Post }) => {
         </>
       </Modal>
 
-      <Swiper spaceBetween={50} slidesPerView={imageCount(post.images.length)} className="my-4 select-none">
+      <Swiper //
+        spaceBetween={50}
+        slidesPerView={1}
+        breakpoints={{
+          768: {
+            slidesPerView: imageCount(post.images.length),
+          },
+        }}
+        className="my-4 select-none"
+      >
         {post.images.map(imageUrl => (
           <SwiperSlide key={imageUrl}>
             <Image
@@ -51,7 +60,7 @@ const PostImagesSwiper = ({ post }: { post: Post }) => {
               alt="post image"
               width={600}
               height={600}
-              className="rounded-xl object-cover w-[600px] h-[600px] border cursor-pointer"
+              className="rounded-xl object-cover w-full max-w-2xl h-auto border cursor-pointer"
               onClick={() => handleSelectedImageOpen(imageUrl)}
             />
           </SwiperSlide>
