@@ -33,26 +33,21 @@ const RemovePostBtn = ({ postId }: { postId: string }) => {
         <div className=" bg-white p-4 m-4 rounded-xl w-screen max-w-xl relative">
           <p className="font-bold text-center text-2xl mb-8">정말로 삭제할까요?</p>
 
-          <Button
-            variant="contained"
-            color="error"
-            disabled={isLoading}
-            className="bg-red-400 mb-4"
-            fullWidth
-            onClick={removePost}
-          >
-            삭제하기
-          </Button>
-          <Button
-            variant="contained"
-            color="info"
-            disabled={isLoading}
-            className="bg-blue-300"
-            fullWidth
-            onClick={handleRemoveClose}
-          >
-            취소하기
-          </Button>
+          <div className="flex flex-col gap-4">
+            <Button variant="contained" color="error" disabled={isLoading} className="bg-red-400" fullWidth onClick={removePost}>
+              삭제하기
+            </Button>
+            <Button
+              variant="contained"
+              color="info"
+              disabled={isLoading}
+              className="bg-blue-300"
+              fullWidth
+              onClick={handleRemoveClose}
+            >
+              취소하기
+            </Button>
+          </div>
         </div>
       </Modal>
 
