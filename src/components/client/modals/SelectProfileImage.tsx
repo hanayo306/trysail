@@ -105,6 +105,7 @@ const SelectProfileImage = ({ userInformation }: { userInformation: UserInformat
               <h2 className="font-bold text-2xl my-4">프로필 변경</h2>
             </div>
             <p className="text-center">프로필 사진을 선택해주세요</p>
+
             {!isUploading && !!images.length && (
               <Swiper spaceBetween={50} slidesPerView={3} centeredSlides className="my-4 select-none">
                 {images.map(image => (
