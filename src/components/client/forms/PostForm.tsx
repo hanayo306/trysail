@@ -13,6 +13,7 @@ import supabase from "@/libs/supabase";
 import AddAPhotoIcon from "@mui/icons-material/AddAPhoto";
 import CloseIcon from "@mui/icons-material/Close";
 import AutorenewIcon from "@mui/icons-material/Autorenew";
+import { imageCount } from "@/utils/imageCount";
 
 type PostInput = {
   title: string;
@@ -147,7 +148,7 @@ const PostForm = ({ userInformation }: { userInformation: UserInformation }) => 
               alt={focusFile.name}
               width={288}
               height={512}
-              className="rounded-xl object-cover w-auto h-[80vh] border shadow-xl"
+              className="rounded-xl object-contain max-w-7xl w-full max-h-[90vh] h-auto border shadow-xl bg-gray-600"
               onClick={handleClose}
               unoptimized
             />
@@ -174,7 +175,16 @@ const PostForm = ({ userInformation }: { userInformation: UserInformation }) => 
           <Textarea placeholder="내용" {...register("content")} className="border-none p-1 mb-8"></Textarea>
 
           {!!files.length && (
-            <Swiper spaceBetween={50} slidesPerView={3} className="my-4 select-none">
+            <Swiper
+              spaceBetween={50}
+              slidesPerView={1}
+              breakpoints={{
+                768: {
+                  slidesPerView: imageCount(files.length),
+                },
+              }}
+              className="my-4 select-none"
+            >
               {files.map(file => (
                 <SwiperSlide key={file.name} className="relative cursor-pointer">
                   <Image
