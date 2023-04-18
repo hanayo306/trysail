@@ -5,7 +5,7 @@ import { Skeleton } from "@mui/material";
 const PostsSkeleton = () => {
   return (
     <>
-      <Skeleton variant="rounded" width={80} height={40} className="my-4" />
+      <Skeleton variant="rounded" width={80} height={40} className="mb-4" />
 
       <ul className="flex flex-wrap gap-8 justify-center">
         {[...new Array(6).keys()].map(key => (
