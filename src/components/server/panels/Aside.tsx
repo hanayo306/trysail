@@ -22,7 +22,11 @@ const Aside = async () => {
             <p className="text-gray-400">{userInformation.user.email}</p>
           </div>
 
-          <LogoutBtn userInformation={userInformation} />
+          <div className="w-full flex justify-between items-center">
+            <p className="font-bold text-xl">{userInformation.profile.user_name}</p>
+            <LogoutBtn />
+          </div>
+
           <PostBtn />
         </div>
       )}
