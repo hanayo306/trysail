@@ -14,6 +14,7 @@ import AddAPhotoIcon from "@mui/icons-material/AddAPhoto";
 import CloseIcon from "@mui/icons-material/Close";
 import AutorenewIcon from "@mui/icons-material/Autorenew";
 import { imageCount } from "@/utils/imageCount";
+import BackBtn from "../buttons/BackBtn";
 
 type PostInput = {
   title: string;
@@ -157,7 +158,9 @@ const PostForm = ({ userInformation }: { userInformation: UserInformation }) => 
         </>
       </Modal>
 
-      <form onSubmit={handleSubmit(onSubmit)}>
+      <BackBtn />
+
+      <form onSubmit={handleSubmit(onSubmit)} className="mt-4">
         <TextField
           id="title"
           type="title"

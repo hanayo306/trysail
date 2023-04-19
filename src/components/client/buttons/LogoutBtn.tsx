@@ -1,7 +1,6 @@
 "use client";
 
 import { Button } from "@mui/material";
-import { User } from "@supabase/supabase-js";
 import LogoutIcon from "@mui/icons-material/Logout";
 import supabase from "@/libs/supabase";
 import { useRouter } from "next/navigation";
