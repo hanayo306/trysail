@@ -33,6 +33,15 @@ const RegisterForm = () => {
 
   const onProfileImageChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     if (e.target.files && e.target.files.length > 0) {
+      const regex = /^[a-zA-Z0-9-_]+\.[a-zA-Z0-9]{1,10}$/;
+
+      const correctName = regex.test(e.target.files[0].name);
+
+      if (!correctName) {
+        setErrorMessage("파일명은 영문, 숫자, -_ 만 가능합니다(공백 제외).");
+        return setError(true);
+      }
+
       setProfileImage(e.target.files[0]);
     }
   };
@@ -102,6 +111,7 @@ const RegisterForm = () => {
           {errorMessage}
         </Alert>
       </Snackbar>
+
       <div className="py-4 flex justify-center">
         {profileImage ? (
           <Image
@@ -170,7 +180,7 @@ const RegisterForm = () => {
         required
         id="passwordConfirm"
         type="password"
-        label="passwordConfirm"
+        label="Password Confirm"
         variant="outlined"
         {...register("passwordConfirm", {
           required: "PasswordConfirm is required",
