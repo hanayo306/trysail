@@ -16,7 +16,7 @@ const PostMobileBtn = () => {
     >
       <CreateIcon
         fontSize="large"
-        className="text-white bg-blue-400 block md:hidden rounded-full overflow-hidden p-2 w-16 h-16"
+        className="text-white bg-blue-400 block md:hidden rounded-full overflow-hidden p-2 !w-16 !h-16"
       />
     </Link>
   );
