@@ -1,14 +1,12 @@
 import { Suspense } from "react";
-import Posts from "@/components/server/panels/Posts";
-import PostsSkeleton from "@/components/client/skeletons/PostsSkeleton";
-
-export const revalidate = 0;
+import MainSkeleton from "@/components/client/skeletons/MainSkeleton";
+import Main from "@/components/server/panels/Main";
 
 const Page = async () => {
   return (
-    <Suspense fallback={<PostsSkeleton />}>
-      {/* @ts-ignore Async Server Component */}
-      <Posts />
+    <Suspense fallback={<MainSkeleton />}>
+      {/* @ts-ignore ASC */}
+      <Main />
     </Suspense>
   );
 };
