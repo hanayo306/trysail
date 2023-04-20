@@ -1,6 +1,6 @@
 "use client";
 
-import { ChangeEventHandler, useState } from "react";
+import { ChangeEventHandler, useRef, useState } from "react";
 import { SubmitHandler, useForm } from "react-hook-form";
 import { Swiper, SwiperSlide } from "swiper/react";
 import Image from "next/image";
@@ -32,6 +32,8 @@ const PostForm = ({ userInformation }: { userInformation: UserInformation }) => 
     register,
     formState: { errors },
   } = useForm<PostInput>();
+
+  const fileInput = useRef<HTMLInputElement>(null);
 
   // error message
   const [errorMessage, setErrorMessage] = useState("");
@@ -72,6 +74,7 @@ const PostForm = ({ userInformation }: { userInformation: UserInformation }) => 
     const filteredFiles = arrayedFiles.filter(file => !files.map(f => f.name).includes(file.name));
 
     setFiles([...files, ...filteredFiles]);
+    fileInput.current && (fileInput.current.value = "");
   };
 
   const handleRemove = (name: string) => {
@@ -121,7 +124,7 @@ const PostForm = ({ userInformation }: { userInformation: UserInformation }) => 
 
       if (error) throw new Error();
 
-      router.push("/");
+      router.push("/posts");
       router.refresh();
     } catch (error) {
       setIsLoading(false);
@@ -218,7 +221,7 @@ const PostForm = ({ userInformation }: { userInformation: UserInformation }) => 
 
           <Button variant="contained" component="label" className="mb-4 bg-blue-400" fullWidth>
             <AddAPhotoIcon />
-            <input type="file" hidden multiple accept="image/*" onChange={handleFilesChange} />
+            <input type="file" hidden multiple accept="image/*" onChange={handleFilesChange} ref={fileInput} />
           </Button>
         </div>
         <div className="flex items-center mt-4 gap-4">
