@@ -47,7 +47,7 @@ const PostImagesSwiper = ({ post }: { post: Post }) => {
 
       <Swiper //
         spaceBetween={50}
-        slidesPerView={1}
+        slidesPerView={1.3}
         breakpoints={{
           768: {
             slidesPerView: imageCount(post.images.length),

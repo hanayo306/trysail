@@ -54,7 +54,7 @@ const Page = async ({ params: { postId } }: Props) => {
 
       <p className="mb-4">{post.user_name}</p>
 
-      <p>{post.content}</p>
+      <p className="whitespace-pre-wrap">{post.content}</p>
 
       <PostImagesSwiper post={post} />
     </>

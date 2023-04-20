@@ -185,10 +185,10 @@ const PostForm = ({ userInformation }: { userInformation: UserInformation }) => 
           {!!files.length && (
             <Swiper
               spaceBetween={50}
-              slidesPerView={1}
+              slidesPerView={1.3}
               breakpoints={{
                 768: {
-                  slidesPerView: imageCount(files.length),
+                  slidesPerView: 2,
                 },
               }}
               className="my-4 select-none"
