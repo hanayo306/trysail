@@ -28,25 +28,25 @@ const Nav = async () => {
       {/* mobile */}
       {userInformation && (
         <div className="container mx-auto flex items-center justify-between md:hidden px-4 py-2 gap-2 relative">
-          <Image
-            src={userInformation.profile.profile_picture_url}
-            alt={`${userInformation.profile.user_name}의 프로필사진`}
-            width={36}
-            height={36}
-            className="rounded-full overflow-hidden"
-          />
-
-          <h1 className="font-bold text-2xl absolute left-1/2 -translate-x-1/2">
+          <h1 className="font-bold text-2xl">
             <Link href={"/"}>Logo</Link>
           </h1>
 
-          <LogoutBtn />
+          <Link href={"/profile"}>
+            <Image
+              src={userInformation.profile.profile_picture_url}
+              alt={`${userInformation.profile.user_name}의 프로필사진`}
+              width={36}
+              height={36}
+              className="rounded-full overflow-hidden"
+            />
+          </Link>
         </div>
       )}
 
       {!userInformation && (
-        <div className="container mx-auto flex items-center justify-end md:hidden px-4 py-2 gap-2 relative">
-          <h1 className="font-bold text-2xl absolute left-1/2 -translate-x-1/2">
+        <div className="container mx-auto flex items-center justify-between md:hidden px-4 py-2 gap-2">
+          <h1 className="font-bold text-2xl">
             <Link href={"/"}>Logo</Link>
           </h1>
 

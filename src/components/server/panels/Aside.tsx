@@ -5,6 +5,7 @@ import LoginBtn from "@/components/client/buttons/LoginBtn";
 import getUserByToken from "@/utils/getUserByToken";
 import Image from "next/image";
 import blurDataURL from "@/const";
+import Link from "next/link";
 
 const Aside = async () => {
   const cookieStore = cookies();
@@ -16,15 +17,17 @@ const Aside = async () => {
     <aside className="w-64 hidden md:block sticky top-[49px] min-h-[calc(100vh-49px)] border-l">
       {userInformation && (
         <div className="flex flex-col gap-4 items-start space-y-2 p-4">
-          <Image
-            src={userInformation.profile.profile_picture_url}
-            placeholder="blur"
-            blurDataURL={blurDataURL}
-            width={80}
-            height={80}
-            className="overflow-hidden object-cover w-[80px] h-[80px] border rounded-full cursor-pointer hover:border-blue-400 transition-[0.3s]"
-            alt={userInformation.profile.user_name}
-          />
+          <Link href={"/profile"}>
+            <Image
+              src={userInformation.profile.profile_picture_url}
+              placeholder="blur"
+              blurDataURL={blurDataURL}
+              width={80}
+              height={80}
+              className="overflow-hidden object-cover w-[80px] h-[80px] border rounded-full cursor-pointer hover:border-blue-400 transition-[0.3s]"
+              alt={userInformation.profile.user_name}
+            />
+          </Link>
 
           <div>
             <p className="text-gray-400">{userInformation.profile.user_name}</p>
