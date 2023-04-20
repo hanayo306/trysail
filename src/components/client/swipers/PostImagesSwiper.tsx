@@ -7,6 +7,7 @@ import { Modal } from "@mui/material";
 import CloseIcon from "@mui/icons-material/Close";
 import { imageCount } from "@/utils/imageCount";
 import { Post } from "@/types/response";
+import blurDataURL from "@/const";
 
 const PostImagesSwiper = ({ post }: { post: Post }) => {
   const [isOpen, setIsOpen] = useState(false);
@@ -29,7 +30,8 @@ const PostImagesSwiper = ({ post }: { post: Post }) => {
           {curImage && (
             <>
               <Image
-                blurDataURL={curImage}
+                placeholder="blur"
+                blurDataURL={blurDataURL}
                 src={curImage}
                 alt={post.title}
                 width={512}
@@ -62,6 +64,8 @@ const PostImagesSwiper = ({ post }: { post: Post }) => {
               height={600}
               className="rounded-xl object-cover w-full max-w-2xl h-auto border cursor-pointer"
               onClick={() => handleSelectedImageOpen(imageUrl)}
+              placeholder="blur"
+              blurDataURL={blurDataURL}
             />
           </SwiperSlide>
         ))}

@@ -11,6 +11,7 @@ import RemoveCircleOutlineIcon from "@mui/icons-material/RemoveCircleOutline";
 import CloseIcon from "@mui/icons-material/Close";
 import useProfileUrls from "@/hooks/useProfileUrls";
 import { UserInformation } from "@/utils/getUserByToken";
+import blurDataURL from "@/const";
 
 const SelectProfileImage = ({ userInformation }: { userInformation: UserInformation }) => {
   const router = useRouter();
@@ -154,7 +155,8 @@ const SelectProfileImage = ({ userInformation }: { userInformation: UserInformat
       {!isLoading && (
         <Image
           src={userInformation.profile.profile_picture_url}
-          blurDataURL={userInformation.profile.profile_picture_url}
+          placeholder="blur"
+                blurDataURL={blurDataURL}
           width={80}
           height={80}
           className="overflow-hidden object-cover w-[80px] h-[80px] border rounded-full cursor-pointer hover:border-blue-400 transition-[0.3s]"

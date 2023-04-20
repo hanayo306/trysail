@@ -8,6 +8,7 @@ import Image from "next/image";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
 import supabase from "@/libs/supabase";
+import blurDataURL from "@/const";
 
 type RegisterInputs = {
   email: string;
@@ -120,6 +121,8 @@ const RegisterForm = () => {
             width={128}
             height={128}
             className="object-cover w-32 h-32 overflow-hidden rounded-full border-4"
+            placeholder="blur"
+            blurDataURL={blurDataURL}
           />
         ) : (
           <div className="w-32 aspect-square bg-gray-400 rounded-full flex justify-center items-center">

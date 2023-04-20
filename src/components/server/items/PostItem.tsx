@@ -1,6 +1,7 @@
 import { Post } from "@/types/response";
 import Image from "next/image";
 import Link from "next/link";
+import blurDataURL from "@/const";
 
 const PostItem = ({ post }: { post: Post }) => {
   return (
@@ -12,6 +13,8 @@ const PostItem = ({ post }: { post: Post }) => {
           width={360}
           height={200}
           className="object-cover w-[360px] h-[200px] rounded-xl overflw-hidden"
+          placeholder="blur"
+          blurDataURL={blurDataURL}
         />
 
         <div className="py-2 my-1 flex gap-4 items-center">

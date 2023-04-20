@@ -15,6 +15,7 @@ import CloseIcon from "@mui/icons-material/Close";
 import AutorenewIcon from "@mui/icons-material/Autorenew";
 import { imageCount } from "@/utils/imageCount";
 import BackBtn from "../buttons/BackBtn";
+import blurDataURL from "@/const";
 
 type PostInput = {
   title: string;
@@ -144,7 +145,8 @@ const PostForm = ({ userInformation }: { userInformation: UserInformation }) => 
         <>
           {!!files.length && focusFile && (
             <Image
-              blurDataURL={URL.createObjectURL(focusFile)}
+              placeholder="blur"
+              blurDataURL={blurDataURL}
               src={URL.createObjectURL(focusFile)}
               alt={focusFile.name}
               width={288}
