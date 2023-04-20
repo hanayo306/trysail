@@ -17,7 +17,7 @@ const Aside = async () => {
     <aside className="w-64 hidden md:block sticky top-[49px] min-h-[calc(100vh-49px)] border-l">
       {userInformation && (
         <div className="flex flex-col gap-4 items-start space-y-2 p-4">
-          <Link href={"/profile"}>
+          <Link href={"/profile"} className="rounded-full overflow-hidden">
             <Image
               src={userInformation.profile.profile_picture_url}
               placeholder="blur"

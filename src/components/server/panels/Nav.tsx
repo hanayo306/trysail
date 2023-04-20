@@ -3,7 +3,6 @@ import { cookies } from "next/headers";
 import Link from "next/link";
 import { BsSearch } from "react-icons/bs";
 import getUserByToken from "@/utils/getUserByToken";
-import LogoutBtn from "@/components/client/buttons/LogoutBtn";
 import LoginBtn from "@/components/client/buttons/LoginBtn";
 
 const Nav = async () => {
@@ -32,7 +31,7 @@ const Nav = async () => {
             <Link href={"/"}>Logo</Link>
           </h1>
 
-          <Link href={"/profile"}>
+          <Link href={"/profile"} className="rounded-full overflow-hidden">
             <Image
               src={userInformation.profile.profile_picture_url}
               alt={`${userInformation.profile.user_name}의 프로필사진`}
