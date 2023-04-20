@@ -4,11 +4,11 @@ import PostsSkeleton from "@/components/client/skeletons/PostsSkeleton";
 
 export const revalidate = 0;
 
-const Page = async () => {
+const Page = async ({ searchParams: { page } }: { searchParams: { page: string | undefined } }) => {
   return (
     <Suspense fallback={<PostsSkeleton />}>
       {/* @ts-ignore Async Server Component */}
-      <Posts />
+      <Posts page={page} />
     </Suspense>
   );
 };

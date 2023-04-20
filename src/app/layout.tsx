@@ -23,9 +23,7 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
           {/* @ts-ignore Async Server Component */}
           <Nav />
         </Suspense>
-        <main className="container mx-auto min-h-[calc(100vh-53px)] md:min-h-[calc(100vh-49px)]">
-          {children}
-        </main>
+        <main className="container mx-auto min-h-[calc(100vh-53px)] md:min-h-[calc(100vh-49px)]">{children}</main>
       </body>
     </html>
   );
