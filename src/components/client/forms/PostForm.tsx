@@ -154,7 +154,7 @@ const PostForm = ({ userInformation }: { userInformation: UserInformation }) => 
               alt={focusFile.name}
               width={288}
               height={512}
-              className="rounded-xl object-contain max-w-7xl w-full max-h-[90vh] h-auto border shadow-xl bg-gray-600"
+              className="object-contain max-w-7xl w-full max-h-[90vh] h-auto shadow-xl bg-gray-600"
               onClick={handleClose}
               unoptimized
             />
@@ -184,11 +184,11 @@ const PostForm = ({ userInformation }: { userInformation: UserInformation }) => 
 
           {!!files.length && (
             <Swiper
-              spaceBetween={50}
+              spaceBetween={20}
               slidesPerView={1.3}
               breakpoints={{
                 768: {
-                  slidesPerView: 2,
+                  slidesPerView: imageCount(files.length),
                 },
               }}
               className="my-4 select-none"
@@ -201,7 +201,7 @@ const PostForm = ({ userInformation }: { userInformation: UserInformation }) => 
                     alt={file.name}
                     width={200}
                     height={256}
-                    className="rounded-xl object-cover w-full h-64 border"
+                    className="rounded-xl object-cover w-full aspect-[9/13] border"
                     onClick={() => handleOpen(file)}
                   />
                   <CloseIcon

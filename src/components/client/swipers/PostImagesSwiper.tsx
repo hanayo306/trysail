@@ -36,7 +36,7 @@ const PostImagesSwiper = ({ post }: { post: Post }) => {
                 alt={post.title}
                 width={512}
                 height={512}
-                className="rounded-xl object-contain max-w-7xl w-full max-h-[90vh] h-auto border shadow-xl bg-gray-600"
+                className="object-contain max-w-7xl w-full max-h-[90vh] h-auto shadow-xl bg-gray-600"
                 unoptimized
               />
             </>
@@ -47,7 +47,7 @@ const PostImagesSwiper = ({ post }: { post: Post }) => {
 
       <Swiper //
         spaceBetween={20}
-        slidesPerView={1.3}
+        slidesPerView={1.2}
         breakpoints={{
           768: {
             slidesPerView: imageCount(post.images.length),
@@ -60,9 +60,9 @@ const PostImagesSwiper = ({ post }: { post: Post }) => {
             <Image
               src={imageUrl}
               alt="post image"
-              width={600}
+              width={400}
               height={600}
-              className="rounded-xl object-cover w-full max-w-2xl h-auto border cursor-pointer"
+              className="rounded-xl object-cover w-full max-w-2xl aspect-[9/13] border cursor-pointer"
               onClick={() => handleSelectedImageOpen(imageUrl)}
               placeholder="blur"
               blurDataURL={blurDataURL}
