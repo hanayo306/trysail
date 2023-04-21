@@ -5,7 +5,7 @@ import { Skeleton } from "@mui/material";
 const PostsSkeleton = () => {
   return (
     <>
-      <div className="pt-2 px-2 md:p-0">
+      <div className="pt-4 px-2 md:p-0">
         <Skeleton variant="rounded" width={80} height={40} className="mb-4" />
       </div>
 
