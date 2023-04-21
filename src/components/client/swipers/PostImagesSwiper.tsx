@@ -46,7 +46,7 @@ const PostImagesSwiper = ({ post }: { post: Post }) => {
       </Modal>
 
       <Swiper //
-        spaceBetween={50}
+        spaceBetween={20}
         slidesPerView={1.3}
         breakpoints={{
           768: {

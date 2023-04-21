@@ -25,8 +25,8 @@ const Posts = async ({ page }: { page: string | undefined }) => {
 
   return (
     <>
-      <div className="flex justify-between">
-        <h2 className="font-bold text-3xl mb-4">이미지</h2>
+      <div className="flex justify-between px-2 pt-2 md:p-0 mb-4">
+        <h2 className="font-bold text-3xl">스토리</h2>
         <div className="flex gap-4">
           {numberPage > 1 && (
             <Link className="rounded-full w-fit h-fit overflow-hidden border" href={`/posts?page=${numberPage - 1}`}>
