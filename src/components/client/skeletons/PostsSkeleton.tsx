@@ -14,7 +14,7 @@ const PostsSkeleton = () => {
           <li key={key} className="overflow-hidden">
             <Skeleton variant="rounded" width={360} height={200} />
 
-            <div className="px-2 md:px-0 py-2 my-1 flex gap-4 items-center">
+            <div className="px-2 md:px-0 my-1 flex gap-4 items-center">
               <Skeleton variant="text" width={80} height={40} />
               <Skeleton variant="text" width={50} height={40} />
             </div>
