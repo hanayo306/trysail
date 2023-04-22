@@ -97,6 +97,11 @@ const PostForm = ({ userInformation }: { userInformation: UserInformation }) => 
     const filteredFiles = files.filter(file => !beforeFileNames.includes(file.name));
     const duplicatedFiles = files.filter(file => beforeFileNames.includes(file.name));
 
+    if (duplicatedFiles.length > 0) {
+      setOpenSnackbar(true);
+      setErrorMessage("이전에 올렸던 중복된 파일은 이전 파일로 대체됩니다.");
+    }
+
     const duplicatedUrls = duplicatedFiles
       .map(file => supabase.storage.from("posts").getPublicUrl(`${userInformation?.user.email}/${file.name}`))
       .map(data => data.data.publicUrl);
@@ -113,7 +118,6 @@ const PostForm = ({ userInformation }: { userInformation: UserInformation }) => 
       .map(data => data.data.publicUrl);
 
     // create post
-
     try {
       const { data: post, error } = await supabase.from("posts").insert({
         ...data,
