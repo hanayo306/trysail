@@ -4,7 +4,7 @@ import { Skeleton } from "@mui/material";
 
 const MainSkeleton = () => {
   return (
-    <div className="md:p-4">
+    <div className="md:px-4 pt-0">
       <Skeleton variant="rectangular" width="full" height={320} className="mb-12" />
 
       <div className="pt-2 px-2 md:p-0">

@@ -21,7 +21,7 @@ const Main = async () => {
   const posts = await getRecentPosts();
 
   return (
-    <div className="md:p-4 h-full">
+    <div className="md:px-4 pt-0 h-full">
       <div className="mb-12 flex justify-center items-center h-[320px] bg-gray-400">로고</div>
 
       <h2 className="font-bold text-3xl mb-4 px-2 md:p-0">최근 스토리</h2>
