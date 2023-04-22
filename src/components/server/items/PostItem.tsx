@@ -18,7 +18,7 @@ const PostItem = ({ post }: { post: Post }) => {
         />
 
         <div className="mx-2 md:mx-0 py-2 my-1 flex gap-4 items-center">
-          <p className="font-bold text-xl text-ellipsis whitespace-nowrap overflow-hidden">{post.title}</p>
+          <p className="font-bold text-xl text-ellipsis max-w-[200px] whitespace-nowrap overflow-hidden">{post.title}</p>
           <p className="text-ellipsis whitespace-nowrap overflow-hidden">{post.user_name}</p>
         </div>
       </Link>
