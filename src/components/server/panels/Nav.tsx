@@ -18,8 +18,9 @@ const Nav = async () => {
     <nav className="border-b sticky top-0 bg-white/50 backdrop-blur z-10">
       {/* pc */}
       <div className="container mx-auto hidden md:flex justify-between items-center px-2 md:px-4 py-2">
-        <Link href={"/"}>
+        <Link href={"/"} className="flex items-center gap-2">
           <Image src={logo} alt="logo" width={32} height={32} className="w-8 h-8" />
+          <h1 className="font-bold text-xl">Trysail</h1>
         </Link>
 
         <button>
@@ -30,8 +31,9 @@ const Nav = async () => {
       {/* mobile */}
       {userInformation && (
         <div className="container mx-auto flex items-center justify-between md:hidden px-2 md:px-4 py-2 gap-2 relative">
-          <Link href={"/"}>
+          <Link href={"/"} className="flex items-center gap-2">
             <Image src={logo} alt="logo" width={32} height={32} className="w-8 h-8" />
+            <h1 className="font-bold text-xl">Trysail</h1>
           </Link>
 
           <Link href={"/profile"} className="rounded-full overflow-hidden">
