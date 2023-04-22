@@ -1,9 +1,10 @@
 import { cookies } from "next/headers";
 import Image from "next/image";
 import { redirect } from "next/navigation";
-import LogoutBtn from "@/components/client/buttons/LogoutBtn";
-import getUserByToken from "@/utils/getUserByToken";
 import blurDataURL from "@/const";
+import getUserByToken from "@/utils/getUserByToken";
+import LogoutBtn from "@/components/client/buttons/LogoutBtn";
+import BackBtn from "@/components/client/buttons/BackBtn";
 
 const Page = async () => {
   const cookieStore = cookies();
@@ -18,7 +19,8 @@ const Page = async () => {
   return (
     <div className="py-4 px-2 md:px-4">
       <div className="mx-auto max-w-3xl">
-        <div className="flex justify-between items-start mb-8">
+        <BackBtn />
+        <div className="flex justify-between items-start mt-4 mb-8">
           <Image
             src={userInformation.profile.profile_picture_url}
             placeholder="blur"
@@ -30,6 +32,7 @@ const Page = async () => {
           />
           <LogoutBtn />
         </div>
+
         <h2 className="font-bold text-xl mb-2">{userInformation.profile.user_name}</h2>
         <p>{userInformation.user.email}</p>
       </div>
