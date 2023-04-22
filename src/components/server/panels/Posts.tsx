@@ -9,10 +9,12 @@ import LinkBtn from "../buttons/LinkBtn";
 const perPage = 6;
 
 const getPosts = async (page = 1) => {
-  const [{ data: posts }, { data: nextPageData, count }] = await Promise.all([
+  const [{ data: posts, count }, { data: nextPageData }] = await Promise.all([
     supabase
       .from("posts")
-      .select("*")
+      .select("*", {
+        count: "exact",
+      })
       .eq("deleted", false)
       .order("created_at", { ascending: false })
       .range((page - 1) * perPage, perPage * page - 1),
