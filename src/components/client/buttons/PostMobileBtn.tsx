@@ -3,15 +3,19 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import CreateIcon from "@mui/icons-material/Create";
+import useScrollDirection from "@/hooks/useScrollDirection";
 
 const PostMobileBtn = () => {
   const pathname = usePathname();
+  const direction = useScrollDirection();
 
   return (
     <Link
       className={`${
         pathname === "/post" ? "hidden" : "block"
-      } md:hidden rounded-full overflow-hidden fixed bottom-6 right-6 z-10`}
+      } md:hidden rounded-full overflow-hidden fixed bottom-6 right-6 z-10 transition-[0.3s] ${
+        direction === "down" ? "translate-y-28" : "translate-y-0"
+      }`}
       href="/post"
     >
       <CreateIcon
