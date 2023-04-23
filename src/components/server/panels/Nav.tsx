@@ -1,10 +1,10 @@
 import Image from "next/image";
 import { cookies } from "next/headers";
 import Link from "next/link";
-import { BsSearch } from "react-icons/bs";
 
-import getUserByToken from "@/utils/getUserByToken";
+import MenuBtn from "@/components/client/buttons/MenuBtn";
 import LoginBtn from "@/components/client/buttons/LoginBtn";
+import getUserByToken from "@/utils/getUserByToken";
 
 import logo from "@/assets/logo.png";
 
@@ -23,9 +23,7 @@ const Nav = async () => {
           <h1 className="font-bold text-xl">Trysail</h1>
         </Link>
 
-        <button>
-          <BsSearch />
-        </button>
+        <MenuBtn userInformation={userInformation} />
       </div>
 
       {/* mobile */}

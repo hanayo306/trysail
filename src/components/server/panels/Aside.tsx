@@ -1,5 +1,4 @@
 import { cookies } from "next/headers";
-import LogoutBtn from "@/components/client/buttons/LogoutBtn";
 import PostBtn from "@/components/client/buttons/PostBtn";
 import LoginBtn from "@/components/client/buttons/LoginBtn";
 import getUserByToken from "@/utils/getUserByToken";
@@ -34,10 +33,7 @@ const Aside = async () => {
             <p className="text-gray-400">{userInformation.user.email}</p>
           </div>
 
-          <div className="w-full flex justify-between items-center">
-            <p className="font-bold text-xl">{userInformation.profile.user_name}</p>
-            <LogoutBtn />
-          </div>
+          <p className="font-bold text-xl">{userInformation.profile.user_name}</p>
 
           <PostBtn />
         </div>
