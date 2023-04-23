@@ -53,6 +53,9 @@ const MenuBtn = ({ userInformation }: { userInformation: UserInformation | null 
           horizontal: "right",
         }}
         className="text-gray-700"
+        sx={{
+          boxShadow: "none",
+        }}
       >
         {userInformation && (
           <>
@@ -64,7 +67,7 @@ const MenuBtn = ({ userInformation }: { userInformation: UserInformation | null 
                 handleClose();
                 logout();
               }}
-              className="flex hover:bg-gray-200 gap-2 items-center py-2 px-4 border-b"
+              className="flex hover:bg-gray-200 gap-2 items-center py-2 px-4"
             >
               로그아웃 <LogoutIcon fontSize="small" className="text-blue-400" />
             </button>
@@ -73,7 +76,7 @@ const MenuBtn = ({ userInformation }: { userInformation: UserInformation | null 
 
         {!userInformation && (
           <>
-            <Link href={"/auth/login"} className="block hover:bg-gray-200 py-2 px-4 border-b" onClick={handleClose}>
+            <Link href={"/auth/login"} className="block hover:bg-gray-200 py-2 px-4" onClick={handleClose}>
               로그인
             </Link>
           </>
