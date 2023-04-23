@@ -14,7 +14,7 @@ const PostMobileBtn = () => {
       className={`${
         pathname === "/post" ? "hidden" : "block"
       } md:hidden rounded-full overflow-hidden fixed bottom-6 right-6 z-10 transition-[0.3s] ${
-        direction === "down" ? "translate-y-28 opacity-100" : "translate-y-0 opacity-0"
+        direction === "down" ? "translate-y-28 opacity-0" : "translate-y-0 opacity-100"
       }`}
       href="/post"
     >
