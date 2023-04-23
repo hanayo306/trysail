@@ -1,6 +1,6 @@
 "use client";
 
-import { MouseEvent, useState } from "react";
+import { MouseEvent, ReactNode, useState } from "react";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
 import { Popover } from "@mui/material";
@@ -9,7 +9,12 @@ import LogoutIcon from "@mui/icons-material/Logout";
 import supabase from "@/libs/supabase";
 import { UserInformation } from "@/utils/getUserByToken";
 
-const MenuBtn = ({ userInformation }: { userInformation: UserInformation | null }) => {
+interface MenuBtnProps {
+  userInformation: UserInformation | null;
+  children?: ReactNode;
+}
+
+const MenuBtn = ({ userInformation, children = <BsThreeDots /> }: MenuBtnProps) => {
   const [anchorEl, setAnchorEl] = useState<HTMLButtonElement | null>(null);
   const [disabled, setDisabled] = useState(false);
   const router = useRouter();
@@ -84,7 +89,7 @@ const MenuBtn = ({ userInformation }: { userInformation: UserInformation | null 
       </Popover>
 
       <button aria-describedby={id} onClick={handleClick} disabled={disabled}>
-        <BsThreeDots />
+        {children}
       </button>
     </>
   );

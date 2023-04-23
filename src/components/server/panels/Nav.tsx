@@ -34,7 +34,7 @@ const Nav = async () => {
             <h1 className="font-bold text-xl">Trysail</h1>
           </Link>
 
-          <Link href={"/profile"} className="rounded-full overflow-hidden">
+          <MenuBtn userInformation={userInformation}>
             <Image
               src={userInformation.profile.profile_picture_url}
               alt={`${userInformation.profile.user_name}의 프로필사진`}
@@ -42,7 +42,7 @@ const Nav = async () => {
               height={36}
               className="rounded-full overflow-hidden w-9 h-9"
             />
-          </Link>
+          </MenuBtn>
         </div>
       )}
 
