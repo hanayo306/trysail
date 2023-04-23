@@ -40,7 +40,7 @@ const Nav = async () => {
               alt={`${userInformation.profile.user_name}의 프로필사진`}
               width={36}
               height={36}
-              className="rounded-full overflow-hidden"
+              className="rounded-full overflow-hidden w-9 h-9"
             />
           </Link>
         </div>

@@ -131,7 +131,7 @@ const RegisterForm = () => {
         )}
       </div>
 
-      <Button variant="contained" component="label" className="bg-blue-400 mb-8">
+      <Button variant="contained" component="label" className="bg-blue-400 pb-4 mb-8">
         Upload File
         <input type="file" hidden accept="image/*" onChange={onProfileImageChange} />
       </Button>
