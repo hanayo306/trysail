@@ -24,9 +24,9 @@ const Main = async () => {
     <div className="md:px-4 pt-0 h-full">
       <div className="mb-12 flex justify-center items-center h-[320px] bg-gray-400">로고</div>
 
-      <h2 className="font-bold text-3xl mb-4 px-2 md:p-0">최근 스토리</h2>
+      <h2 className="max-w-md md:max-w-full mx-auto font-bold text-3xl mb-4 px-2 md:p-0">최근 스토리</h2>
 
-      <ul className="flex flex-wrap gap-8 justify-center">
+      <ul className="flex flex-wrap gap-8 justify-between">
         {posts?.map(post => (
           <PostItem post={post} key={post.id} />
         ))}

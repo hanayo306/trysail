@@ -5,14 +5,14 @@ import blurDataURL from "@/const";
 
 const PostItem = ({ post }: { post: Post }) => {
   return (
-    <li className="cursor-pointer" key={post.id}>
-      <Link href={`/posts/${post.id}`}>
+    <li className="cursor-pointer max-w-md w-full md:w-[calc(50%-16px)] mx-auto" key={post.id}>
+      <Link href={`/posts/${post.id}`} className="block w-full">
         <Image
           src={post.images[0]}
           alt={post.title}
           width={360}
-          height={200}
-          className="object-cover w-[360px] h-[200px] md:rounded-xl overflw-hidden"
+          height={202.5}
+          className="object-cover w-full aspect-video md:rounded-xl overflw-hidden"
           placeholder="blur"
           blurDataURL={blurDataURL}
         />

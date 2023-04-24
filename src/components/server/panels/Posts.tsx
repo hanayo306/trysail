@@ -1,9 +1,9 @@
 import Link from "next/link";
+import { redirect } from "next/navigation";
 import { BsArrowLeftShort, BsArrowRightShort } from "react-icons/bs";
 import supabase from "@/libs/supabase";
 import { Post } from "@/types/response";
 import PostItem from "../items/PostItem";
-import { redirect } from "next/navigation";
 import LinkBtn from "../buttons/LinkBtn";
 
 const perPage = 6;
@@ -49,11 +49,11 @@ const Posts = async ({ page }: { page: string | undefined }) => {
 
   return (
     <>
-      <div className="flex justify-between px-2 pt-4 md:p-0 mb-4">
-        <h2 className="font-bold text-3xl">스토리</h2>
+      <div className="max-w-md md:max-w-full mx-auto flex justify-between px-2 pt-4 md:p-0 mb-4">
+        <h2 className="font-bold text-3xl">오늘의 스토리들</h2>
       </div>
 
-      <ul className="flex flex-wrap gap-8 justify-center">
+      <ul className="flex flex-wrap gap-8 justify-between">
         {posts.map(post => (
           <PostItem post={post} key={post.id} />
         ))}
