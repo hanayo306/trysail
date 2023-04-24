@@ -5,6 +5,7 @@ import Link from "next/link";
 import MenuBtn from "@/components/client/buttons/MenuBtn";
 import LoginBtn from "@/components/client/buttons/LoginBtn";
 import getUserByToken from "@/utils/getUserByToken";
+import { BsSearch } from "react-icons/bs";
 
 import logo from "@/assets/logo.png";
 
@@ -23,7 +24,13 @@ const Nav = async () => {
           <h1 className="font-bold text-xl">Trysail</h1>
         </Link>
 
-        <MenuBtn userInformation={userInformation} />
+        <div className="flex gap-4">
+          <Link href="/posts/search" className="py-1 px-2 border rounded-full flex items-center gap-4">
+            검색
+            <BsSearch />
+          </Link>
+          <MenuBtn userInformation={userInformation} />
+        </div>
       </div>
 
       {/* mobile */}
@@ -34,6 +41,11 @@ const Nav = async () => {
             <h1 className="font-bold text-xl">Trysail</h1>
           </Link>
 
+          <div className="flex gap-4">
+          <Link href="/posts/search" className="py-1 px-2 border rounded-full flex items-center gap-4">
+            검색
+            <BsSearch />
+          </Link>
           <MenuBtn userInformation={userInformation}>
             <Image
               src={userInformation.profile.profile_picture_url}
@@ -43,6 +55,9 @@ const Nav = async () => {
               className="rounded-full overflow-hidden w-9 h-9"
             />
           </MenuBtn>
+        </div>
+
+          
         </div>
       )}
 
