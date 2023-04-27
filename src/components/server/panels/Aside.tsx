@@ -13,7 +13,7 @@ const Aside = async () => {
   const userInformation = await getUserByToken(token);
 
   return (
-    <aside className="w-64 hidden md:block sticky top-[49px] min-h-[calc(100vh-49px)] border-l">
+    <aside className="w-64 hidden md:block sticky top-[51px] min-h-[calc(100vh-51px)] border-l">
       {userInformation && (
         <div className="flex flex-col gap-4 items-start space-y-2 p-4">
           <Link href={"/profile"} className="rounded-full overflow-hidden">
@@ -40,7 +40,7 @@ const Aside = async () => {
       )}
 
       {!userInformation && (
-        <div className="flex flex-col justify-center items-center space-y-2 h-full min-h-[calc(100vh-49px)]">
+        <div className="flex flex-col justify-center items-center space-y-2 h-full min-h-[calc(100vh-51px)]">
           <LoginBtn />
         </div>
       )}
