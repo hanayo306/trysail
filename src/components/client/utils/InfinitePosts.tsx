@@ -7,7 +7,7 @@ import getPostsByPage from '@/utils/getPostsByPage';
 import useInfiniteScroll from '@/hooks/useInfiniteScroll';
 
 const InfinitePosts = () => {
-  const { postsGroup, spinnerRef, isEnd, isLoading, page } = useInfiniteScroll<Post>({
+  const { postsGroup, spinnerRef } = useInfiniteScroll<Post>({
     getPostsByPage,
     viewPerPage: 6,
     initialPage: 2,
