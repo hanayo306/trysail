@@ -16,7 +16,7 @@ const Posts = async () => {
         <h2 className='font-bold text-3xl'>오늘의 스토리들</h2>
       </div>
 
-      <ul className='flex flex-wrap gap-8 justify-between'>
+      <ul className='flex flex-wrap gap-8 justify-between mb-8'>
         {posts.map(post => (
           <PostItem post={post} key={post.id} />
         ))}

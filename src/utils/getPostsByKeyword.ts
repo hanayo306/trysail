@@ -2,7 +2,7 @@ import supabase from '@/libs/supabase';
 import { Post } from '@/types/response';
 
 const getPostsByKeyword = async (keyword: string) => {
-  const { data: posts } = await supabase
+  const { data: posts, count } = await supabase
     .from('posts')
     .select('*', {
       count: 'exact',
@@ -11,7 +11,10 @@ const getPostsByKeyword = async (keyword: string) => {
     .textSearch('title', keyword)
     .order('created_at', { ascending: false });
 
-  return posts as Post[];
+  return {
+    posts: posts as Post[],
+    count,
+  };
 };
 
 export default getPostsByKeyword;
