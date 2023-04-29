@@ -1,4 +1,5 @@
-import BackBtn from "@/components/client/buttons/BackBtn";
+import BackBtn from '@/components/client/buttons/BackBtn';
+import SearchForm from '@/components/client/forms/SearchForm';
 
 type Props = {
   searchParams: { [key: string]: string | string[] | undefined };
@@ -12,7 +13,7 @@ const Page = async ({ searchParams }: Props) => {
   return (
     <>
       <BackBtn />
-      <p>{searchKeyword || "추가예정"}</p>
+      <SearchForm />
     </>
   );
 };
