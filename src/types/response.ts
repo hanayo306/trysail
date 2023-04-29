@@ -4,6 +4,6 @@ export interface Post {
   content: string;
   user_id: string;
   user_name: null;
-  created_at: Date;
+  created_at: string;
   images: string[];
 }

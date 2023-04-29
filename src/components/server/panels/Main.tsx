@@ -3,6 +3,7 @@ import supabase from '@/libs/supabase';
 import { Post } from '@/types/response';
 import { BsGithub } from 'react-icons/bs';
 import PostItem from '../items/PostItem';
+import MainItem from '@/components/server/items/MainItem';
 
 const getRecentPosts = async () => {
   const { data } = await supabase
@@ -25,11 +26,11 @@ const Main = async () => {
       <div className='mb-12 flex justify-center items-center h-[calc(100vh-51px)] bg-gray-400 animate-pulse'>로고</div>
 
       <div className='md:px-4 max-w-6xl mx-auto'>
-        <h2 className='max-w-md md:max-w-full mx-auto font-bold text-3xl mb-4 px-2 md:p-0'>최근 스토리</h2>
+        <h2 className='mx-auto font-bold text-3xl mb-4 px-2 md:p-0'>최근 스토리</h2>
 
-        <ul className='flex flex-wrap gap-8 justify-between'>
+        <ul>
           {posts?.map(post => (
-            <PostItem post={post} key={post.id} />
+            <MainItem post={post} key={post.id} />
           ))}
         </ul>
 
