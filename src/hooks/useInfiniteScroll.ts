@@ -1,12 +1,12 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState } from 'react';
 
-interface useInfinityScrollProps<G> {
+interface useInfiniteScrollProps<G> {
   getPostsByPage: (page: number) => Promise<G[]>;
   viewPerPage: number;
   initialPage?: number;
 }
 
-const useInfinityScroll = <T>({ getPostsByPage, viewPerPage, initialPage = 1 }: useInfinityScrollProps<T>) => {
+const useInfiniteScroll = <T>({ getPostsByPage, viewPerPage, initialPage = 1 }: useInfiniteScrollProps<T>) => {
   const [postsGroup, setPostsGroup] = useState<T[][]>([]);
   const [isLoading, setIsLoading] = useState(false);
   const [isEnd, setIsEnd] = useState(false);
@@ -24,7 +24,7 @@ const useInfinityScroll = <T>({ getPostsByPage, viewPerPage, initialPage = 1 }: 
 
         if (fetchedPosts.length < viewPerPage) {
           setIsEnd(true);
-          spinnerRef.current!.style.display = "none";
+          spinnerRef.current!.style.display = 'none';
         }
 
         setIsLoading(false);
@@ -43,4 +43,4 @@ const useInfinityScroll = <T>({ getPostsByPage, viewPerPage, initialPage = 1 }: 
   };
 };
 
-export default useInfinityScroll;
+export default useInfiniteScroll;
