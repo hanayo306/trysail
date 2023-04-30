@@ -7,6 +7,7 @@ import LogoutBtn from '@/components/client/buttons/LogoutBtn';
 import BackBtn from '@/components/client/buttons/BackBtn';
 import getImagesUploadedByUser from '@/utils/getImagesFromEmail';
 import getPublicUrlsFromFiles from '@/utils/getPublicUrlsFromFiles';
+import RecentImages from '@/components/server/panels/RecentImages';
 
 const Page = async () => {
   const cookieStore = cookies();
@@ -65,43 +66,8 @@ const Page = async () => {
             <p>{userInformation.user.email}</p>
           </div>
 
-          <div>
-            <h2 className='font-bold text-xl mb-2'>이미지</h2>
-            <ul className='flex flex-wrap overflow-hidden rounded-2xl border'>
-              {publicPostsUrls.map(image => (
-                <li key={image.name} className='w-1/2 md:w-1/3 aspect-square overflow-hidden'>
-                  <Image
-                    width={300}
-                    height={200}
-                    src={image.url}
-                    alt={image.name}
-                    className='w-full h-full object-cover'
-                    placeholder='blur'
-                    blurDataURL={blurDataURL}
-                  />
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          <div>
-            <h2 className='font-bold text-xl mb-2'>프로필</h2>
-            <ul className='flex flex-wrap overflow-hidden rounded-2xl border'>
-              {publicAvatarsUrls.map(image => (
-                <li key={image.name} className='w-1/2 md:w-1/3 aspect-square overflow-hidden'>
-                  <Image
-                    width={300}
-                    height={200}
-                    src={image.url}
-                    alt={image.name}
-                    className='w-full h-full object-cover'
-                    placeholder='blur'
-                    blurDataURL={blurDataURL}
-                  />
-                </li>
-              ))}
-            </ul>
-          </div>
+          <RecentImages title='이미지' urls={publicPostsUrls} />
+          <RecentImages title='프로필' urls={publicAvatarsUrls} />
 
           <div className='flex justify-end'>
             <button className='text-red-400'>회원탈퇴</button>
