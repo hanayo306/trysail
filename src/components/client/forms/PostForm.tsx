@@ -92,7 +92,9 @@ const PostForm = ({ userInformation }: { userInformation: UserInformation }) => 
     setIsLoading(true);
 
     // get file urls
-    const imagesUploadedBefore = await getImagesUploadedByUser(userInformation.user.email!);
+    const imagesUploadedBefore = await getImagesUploadedByUser(userInformation.user.email!, {
+      bucketName: 'posts',
+    });
     const beforeFileNames = imagesUploadedBefore.map(file => file.name);
 
     const filteredFiles = files.filter(file => !beforeFileNames.includes(file.name));
