@@ -1,6 +1,7 @@
-import supabase from "@/libs/supabase";
-import { UserInformation } from "@/utils/getUserByToken";
-import { useState, useEffect } from "react";
+import supabase from '@/libs/supabase';
+import { UserInformation } from '@/utils/getUserByToken';
+import { useState, useEffect } from 'react';
+import getPublicUrlsFromFiles from '@/utils/getPublicUrlsFromFiles';
 
 const useProfileUrls = (userInformation: UserInformation) => {
   const [images, setImages] = useState<
@@ -11,19 +12,16 @@ const useProfileUrls = (userInformation: UserInformation) => {
   >([]);
 
   const getImages = async () => {
-    const { data: files } = await supabase.storage.from("avatars").list(userInformation.user.email, {
-      sortBy: { column: "name", order: "asc" },
+    const { data: files } = await supabase.storage.from('avatars').list(userInformation.user.email, {
+      sortBy: { column: 'name', order: 'asc' },
     });
 
     if (!files) return;
 
-    const publicUrls = files.map(file => {
-      const { name } = file;
-      const publicUrl = supabase.storage.from("avatars").getPublicUrl(`${userInformation.user.email}/${name}`);
-      return {
-        name,
-        url: publicUrl.data.publicUrl,
-      };
+    const publicUrls = getPublicUrlsFromFiles({
+      files,
+      bucketName: 'avatars',
+      userInformation,
     });
 
     setImages(publicUrls);
