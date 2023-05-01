@@ -17,17 +17,16 @@ const Nav = async () => {
 
   return (
     <nav className='border-b sticky top-0 bg-white/50 backdrop-blur z-10'>
-      {/* pc */}
-      <div className='max-w-6xl mx-auto hidden md:flex justify-between items-center px-2 md:px-4 py-2'>
-        <div className='flex gap-8 items-center'>
+      <div className='max-w-6xl mx-auto flex justify-between items-center px-2 md:px-4 py-2'>
+        <div className='flex gap-4 items-center'>
           <Link href={'/'} className='flex items-center gap-2'>
             <Image src={logo} alt='logo' width={32} height={32} className='w-8 h-8' />
-            <h1 className='font-bold text-xl'>Trysail</h1>
+            <h1 className='hidden md:block font-bold text-xl'>Trysail</h1>
           </Link>
 
           <ul className='flex gap-4'>
             <li>
-              <Link href='/posts'>오늘의 스토리</Link>
+              <Link href='/posts'>스토리</Link>
             </li>
           </ul>
         </div>
@@ -37,31 +36,7 @@ const Nav = async () => {
             검색
             <BsSearch />
           </Link>
-          <MenuBtn userInformation={userInformation} />
-        </div>
-      </div>
-
-      {/* mobile */}
-      {userInformation && (
-        <div className='max-w-6xl mx-auto flex items-center justify-between md:hidden px-2 md:px-4 py-2 gap-2 relative'>
-          <div className='flex gap-8 items-center'>
-            <Link href={'/'} className='flex items-center gap-2'>
-              <Image src={logo} alt='logo' width={32} height={32} className='w-8 h-8' />
-              <h1 className='font-bold text-xl'>Trysail</h1>
-            </Link>
-
-            <ul className='flex gap-4'>
-              <li>
-                <Link href='/posts'>오늘의 스토리</Link>
-              </li>
-            </ul>
-          </div>
-
-          <div className='flex gap-4'>
-            <Link href='/posts/search' className='py-1 px-2 border rounded-full flex items-center gap-4'>
-              검색
-              <BsSearch />
-            </Link>
+          {userInformation ? (
             <MenuBtn userInformation={userInformation}>
               <Image
                 src={userInformation.profile.profile_picture_url}
@@ -71,19 +46,11 @@ const Nav = async () => {
                 className='rounded-full overflow-hidden w-9 h-9'
               />
             </MenuBtn>
-          </div>
+          ) : (
+            <LoginBtn />
+          )}
         </div>
-      )}
-
-      {!userInformation && (
-        <div className='max-w-6xl mx-auto flex items-center justify-between md:hidden px-2 md:px-4 py-2 gap-2'>
-          <h1 className='font-bold text-2xl'>
-            <Link href={'/'}>Logo</Link>
-          </h1>
-
-          <LoginBtn />
-        </div>
-      )}
+      </div>
     </nav>
   );
 };
