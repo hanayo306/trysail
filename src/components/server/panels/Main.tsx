@@ -1,8 +1,6 @@
-import Link from 'next/link';
 import supabase from '@/libs/supabase';
 import { Post } from '@/types/response';
 import { BsGithub } from 'react-icons/bs';
-import PostItem from '../items/PostItem';
 import MainItem from '@/components/server/items/MainItem';
 
 const getRecentPosts = async () => {

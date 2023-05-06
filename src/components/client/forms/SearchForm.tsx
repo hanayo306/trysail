@@ -31,9 +31,10 @@ const SearchForm = () => {
             {...register('text', {
               required: '검색어를 입력해주세요',
             })}
-            placeholder='검색어를 입력해주세요'
             fullWidth
-            variant='standard'
+            label='검색어'
+            variant='outlined'
+            error={Boolean(isSearched && !posts?.length)}
           />
         </div>
       </form>

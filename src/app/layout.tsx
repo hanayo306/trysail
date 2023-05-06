@@ -6,6 +6,7 @@ import 'swiper/swiper.min.css';
 import Nav from '@/components/server/panels/Nav';
 import NavSkeleton from '@/components/client/skeletons/NavSkeketon';
 import Footer from '@/components/server/panels/Footer';
+import Panel from '@/components/server/panels/Panel';
 
 export const metadata: Metadata = {
   title: 'Trysail',
@@ -20,6 +21,8 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
   return (
     <html lang='kr'>
       <body className='min-h-screen'>
+        <Panel />
+
         <Suspense fallback={<NavSkeleton />}>
           {/* @ts-ignore Async Server Component */}
           <Nav />

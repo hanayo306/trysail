@@ -4,7 +4,15 @@ const nextConfig = {
     appDir: true,
   },
   images: {
-    domains: ["lgfdzjeaysweotrbxgqh.supabase.co"],
+    domains: ['lgfdzjeaysweotrbxgqh.supabase.co'],
+  },
+  modularizeImports: {
+    '@mui/material': {
+      transform: '@mui/material/{{member}}',
+    },
+    '@mui/icons-material': {
+      transform: '@mui/icons-material/{{member}}',
+    },
   },
 };
 

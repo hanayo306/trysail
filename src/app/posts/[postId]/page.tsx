@@ -1,11 +1,12 @@
-import { Metadata } from "next";
-import { cookies } from "next/headers";
-import { redirect } from "next/navigation";
-import RemovePostBtn from "@/components/client/buttons/RemovePostBtn";
-import PostImagesSwiper from "@/components/client/swipers/PostImagesSwiper";
-import getDetail from "@/utils/getDetail";
-import getUserByToken from "@/utils/getUserByToken";
-import BackBtn from "@/components/client/buttons/BackBtn";
+import { Metadata } from 'next';
+import { cookies } from 'next/headers';
+import { redirect } from 'next/navigation';
+import RemovePostBtn from '@/components/client/buttons/RemovePostBtn';
+import PostImagesSwiper from '@/components/client/swipers/PostImagesSwiper';
+import getDetail from '@/utils/getDetail';
+import getUserByToken from '@/utils/getUserByToken';
+import BackBtn from '@/components/client/buttons/BackBtn';
+import CommentForm from '@/components/client/forms/CommentForm';
 
 type Props = {
   params: { postId: string };
@@ -18,45 +19,49 @@ export const generateMetadata = async ({ params }: Props): Promise<Metadata> => 
   const post = await getDetail(id);
 
   return {
-    title: `${post?.title || "없는 이미지"} - Trysail`,
-    description: post?.content || "설명이 없어요",
+    title: `${post?.title || '없는 이미지'} - Trysail`,
+    description: post?.content || '설명이 없어요',
     openGraph: {
-      title: `${post?.title || "없는 이미지"} - Trysail`,
-      description: post?.content || "설명이 없어요",
+      title: `${post?.title || '없는 이미지'} - Trysail`,
+      description: post?.content || '설명이 없어요',
       images: post?.images || [],
     },
     twitter: {
-      card: "summary_large_image",
-      title: `${post?.title || "없는 이미지"} - Trysail`,
-      description: post?.content || "설명이 없어요",
+      card: 'summary_large_image',
+      title: `${post?.title || '없는 이미지'} - Trysail`,
+      description: post?.content || '설명이 없어요',
     },
   };
 };
 
 const Page = async ({ params: { postId } }: Props) => {
   const cookieStore = cookies();
-  const token = cookieStore.get("access_token")?.value;
+  const token = cookieStore.get('access_token')?.value;
 
   const [userInformation, post] = await Promise.all([getUserByToken(token), getDetail(postId)]);
 
   if (!post) {
-    redirect("/");
+    redirect('/');
   }
 
   return (
     <>
       <BackBtn />
 
-      <div className="flex justify-between items-center">
-        <h2 className="font-bold text-2xl my-4">{post.title}</h2>
+      <div className='flex justify-between items-center'>
+        <h2 className='font-bold text-2xl my-4'>{post.title}</h2>
         {userInformation?.user.id === post.user_id && <RemovePostBtn postId={post.id} />}
       </div>
 
-      <p className="mb-4">{post.user_name}</p>
+      <p className='mb-4'>{post.user_name}</p>
 
-      <p className="whitespace-pre-wrap">{post.content}</p>
+      <p className='whitespace-pre-wrap'>{post.content}</p>
 
       <PostImagesSwiper post={post} />
+
+      <h3 className='font-bold text-2xl my-4 mt-8'>리뷰</h3>
+
+      {userInformation && <CommentForm post={post} userInformation={userInformation} />}
     </>
   );
 };
